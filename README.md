@@ -109,7 +109,9 @@ a. Use `sortedBy` to sort `cities` in alphabetical order.
 ```swift
 let cities = ["Shanghai", "Beijing", "Delhi", "Lagos", "Tianjin", "Karachi", "Karachi", "Tokyo", "Guangzhou", "Mumbai", "Moscow", "São Paulo"]
 
-let sortedCities = cities.sorted()
+let sortedCities = cities.sorted(by: {(a, b) in
+a < b
+})
 print(sortedCities)
 ```
 
