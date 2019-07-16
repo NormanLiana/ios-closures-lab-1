@@ -24,6 +24,21 @@ Hello Closures!
 Hello Closures!
 Hello Closures!
 ```
+// My code below
+
+```swift
+func applyKTimes(_ K: Int, _ closure: () -> ()) {
+for _ in 1...K {
+closure()
+}
+}
+
+
+
+applyKTimes(3) {
+print("Hello Closures!")
+}
+```
 
 
 ## Question 2
@@ -37,6 +52,16 @@ Input: `let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]`
 
 Expected values: `multiples = [3, 6, 9, 3, 12]`
 
+// My code below
+
+```swift
+let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
+
+let filteredNumbers = numbers.filter({a -> Bool in
+return a % 3 == 0
+})
+print(filteredNumbers)
+```
 
 ## Question 3
 
@@ -47,6 +72,14 @@ Input: `let numbers = [4, 7, 1, 9, 6, 5, 6, 9]`
 
 Output: `9`
 
+```swift
+let numbers = [4, 7, 1, 9, 6, 5, 6, 9]
+
+let reducedNumbers = numbers.reduce(0, {x, y in
+return x > y ? x : y
+})
+print(reducedNumbers)
+```
 
 ## Question 4
 
@@ -57,6 +90,15 @@ Input: `let strings = ["We", "Heart", "Swift"]`
 
 Output: `"We Heart Swift"`
 
+```swift
+let strings = ["We", "Heart", "Swift"]
+
+
+let reducedStrings = strings.reduce("", {x, y in
+return x == "" ? y : x + " " + y
+})
+print(reducedStrings)
+```
 
 ## Question 5
 
@@ -64,10 +106,32 @@ Output: `"We Heart Swift"`
 
 a. Use `sortedBy` to sort `cities` in alphabetical order.
 
+```swift
+let cities = ["Shanghai", "Beijing", "Delhi", "Lagos", "Tianjin", "Karachi", "Karachi", "Tokyo", "Guangzhou", "Mumbai", "Moscow", "São Paulo"]
+
+let sortedCities = cities.sorted()
+print(sortedCities)
+```
+
 b. Use `sortedBy` to sort `cities` alphabetical order of the second character of the city name.
+
+```swift
+let cities = ["Shanghai", "Beijing", "Delhi", "Lagos", "Tianjin", "Karachi", "Karachi", "Tokyo", "Guangzhou", "Mumbai", "Moscow", "São Paulo"]
+
+let sortedCities = cities.sorted(by: {(a, b) in a.dropFirst() < b.dropFirst()
+})
+print(sortedCities)
+```
 
 c. Use `sortedBy` to sort `cities` in order of the length of the city name.
 
+```swift
+let cities = ["Shanghai", "Beijing", "Delhi", "Lagos", "Tianjin", "Karachi", "Karachi", "Tokyo", "Guangzhou", "Mumbai", "Moscow", "São Paulo"]
+
+let sortedCities = cities.sorted(by: {(a, b) in a.count > b.count})
+print(sortedCities)
+
+```
 
 ## Question 6
 
@@ -75,8 +139,27 @@ c. Use `sortedBy` to sort `cities` in order of the length of the city name.
 
 a. Use `sortedBy` to sort `citiesWithPopulation` in ascending order of population.
 
+```swift
+let citiesWithPopulation: [(String, Int)] = [("Shanghai", 24256800), ("Beijing", 21516000), ("Delhi", 16787941), ("Lagos", 16060303), ("Tianjin", 15200000), ("Karachi", 14910352), ("Karachi", 14160467), ("Tokyo", 13513734), ("Guangzhou", 13080500), ("Mumbai", 12442373), ("Moscow", 12380664), ("São Paulo", 12038175)]
+
+let sortedCitiesWithPopulation = citiesWithPopulation.sorted(by: {(a, b) in
+a.1 < b.1
+})
+print(sortedCitiesWithPopulation)
+```
+
 b. Use `sortedBy` to sort `citiesWithPopulation` in reverse alphabetical order of the last character in the city name.
 
+```swift
+// My code below is not working
+
+let citiesWithPopulation: [(String, Int)] = [("Shanghai", 24256800), ("Beijing", 21516000), ("Delhi", 16787941), ("Lagos", 16060303), ("Tianjin", 15200000), ("Karachi", 14910352), ("Karachi", 14160467), ("Tokyo", 13513734), ("Guangzhou", 13080500), ("Mumbai", 12442373), ("Moscow", 12380664), ("São Paulo", 12038175)]
+
+let sortedCitiesWithPopulation = citiesWithPopulation.sorted(by: {(a, b) in
+a.0.last > b.0.last
+})
+print(sortedCitiesWithPopulation)
+```
 
 ## Question 7
 
