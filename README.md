@@ -130,7 +130,7 @@ c. Use `sortedBy` to sort `cities` in order of the length of the city name.
 ```swift
 let cities = ["Shanghai", "Beijing", "Delhi", "Lagos", "Tianjin", "Karachi", "Karachi", "Tokyo", "Guangzhou", "Mumbai", "Moscow", "São Paulo"]
 
-let sortedCities = cities.sorted(by: {(a, b) in a.count > b.count})
+let sortedCities = cities.sorted(by: {(a, b) in a.count < b.count})
 print(sortedCities)
 
 ```
